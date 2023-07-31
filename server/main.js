@@ -4,7 +4,7 @@ const { db } = require("./db");
 
 const init = async () => {
   try {
-    await db.sync();
+    // await db.sync();
     server.listen(PORT, () =>
       console.log(`
 
