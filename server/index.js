@@ -25,7 +25,7 @@ app.use(
   )
 );
 
-app.use("/api", require("./api").default);
+app.use("/api", require("./api"));
 
 app.use((req, res, next) => {
   if (path.extname(req.path).length > 0) {

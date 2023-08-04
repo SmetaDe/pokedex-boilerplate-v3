@@ -1,54 +1,46 @@
-const { db } = require("./db");
-
-const { DataTypes } = require('sequelize');
-
+const { db, Sequelize } = require("./db");
+// require each of your models
 const Trainer = db.define("Trainer", {
   firstName: {
-    type: DataTypes.STRING,
+    type: Sequelize.STRING,
     allowNull: false,
   },
   lastName: {
-    type: DataTypes.STRING,
+    type: Sequelize.STRING,
     allowNull: false,
   },
-  team: {
-    type: DataTypes.STRING,
+  image: {
+    type: Sequelize.STRING,
     allowNull: false,
-  },
-  imageURL: {
-    type: DataTypes.STRING,
-    allowNull: true,
-    defaultValue: "https://w7.pngwing.com/pngs/591/992/png-transparent-pokemon-platinum-unown-exclamation-mark-pokemon-trainer-unown-pokemon-celebi-technology-thumbnail.png",
   },
 });
 
 const Pokemon = db.define("Pokemon", {
   name: {
-    type: DataTypes.STRING,
+    type: Sequelize.STRING,
     allowNull: false,
   },
   type: {
-    type: DataTypes.STRING,
+    type: Sequelize.STRING,
     allowNull: false,
   },
-  trainer: {
-    type: DataTypes.STRING,
+  date: {
+    type: Sequelize.DATE,
     allowNull: false,
   },
   image: {
-    type: DataTypes.STRING,
-    allowNull: true,
-    defaultValue: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png",
+    type: Sequelize.STRING,
+    allowNull: false,
   },
 });
 
-// Place your associations here
-Pokemon.belongsTo(Trainer);
-Trainer.hasMany(Pokemon)
+// place your associations here!
 
-// Export your models
+Pokemon.belongsTo(Trainer, { foreignKey: "TrainerId" });
+
+// export your models below
 module.exports = {
   db,
   Pokemon,
-  Trainer
+  Trainer,
 };
