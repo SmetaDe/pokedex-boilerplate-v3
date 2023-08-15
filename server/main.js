@@ -5,17 +5,14 @@ const { db } = require("./db");
 const init = async () => {
   try {
     // await db.sync();
-    server.listen(PORT, () =>
+    server.listen(PORT, () => {
       console.log(`
-
-          Listening on port ${PORT}
-
-          http://localhost:${PORT}/
-
-      `)
-    );
+        Listening on port ${PORT}
+        http://localhost:${PORT}/
+      `);
+    });
   } catch (err) {
-    console.log(`There was an error starting up!`, err);
+    console.error("There was an error starting up!", err);
   }
 };
 

@@ -9,7 +9,7 @@ export default function Trainer() {
   useEffect(() => {
     async function fetchTrainerDetails() {
       try {
-        const response = await axios.get(`/api/trainer/${id}`);
+        const response = await axios.get(`/api/trainers/${id}`);
         setTrainer(response.data);
       } catch (error) {
         console.error("Error fetching trainer details:", error);

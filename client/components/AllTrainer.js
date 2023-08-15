@@ -8,7 +8,7 @@ export default function Trainers() {
   useEffect(() => {
     async function fetchTrainers() {
       try {
-        const response = await axios.get("/api/trainer");
+        const response = await axios.get("/api/trainers");
         setTrainers(response.data);
       } catch (error) {
         console.error("Error fetching trainers:", error);
@@ -20,11 +20,11 @@ export default function Trainers() {
 
   return (
     <div>
-      <h1>Trainers list</h1>
-      <ul id="main">
+      <h1>Trainers List</h1>
+      <ul>
         {trainers.map((trainer) => (
           <li key={trainer.id}>
-            <Link to={`/trainer/${trainer.id}`}>
+            <Link to={`/trainers/${trainer.id}`}>
               {trainer.firstName} {trainer.lastName}
             </Link>{" "}
             <br />

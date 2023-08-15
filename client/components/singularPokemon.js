@@ -9,7 +9,7 @@ export default function Pokemon() {
   useEffect(() => {
     async function fetchPokemonDetails() {
       try {
-        const response = await axios.get(`/api/Pokemon/${id}`);
+        const response = await axios.get(`/api/pokemon/${id}`);
         setPokemon(response.data);
       } catch (error) {
         console.error("Error fetching Pokemon details:", error);
@@ -23,19 +23,21 @@ export default function Pokemon() {
     return <div>Loading...</div>;
   }
 
+  const { name, type, Trainer } = pokemon;
+
   return (
     <div>
-      <h2>{pokemon.name}</h2>
-      <p>Type: {pokemon.type}</p>
-      <p>Trainer: {pokemon.trainer}</p>
-      <img src={pokemon.image} alt={`${pokemon.name} sprite`} />
+      <h2>{name}</h2>
+      <p>Type: {type}</p>
+      <p>Trainer: {Trainer.firstName} {Trainer.lastName}</p>
+      <img src={pokemon.image} alt={`${name} sprite`} />
 
-      <ul key={pokemon.Trainer.id}>
+      <ul key={Trainer.id}>
         <li>
-          {pokemon.Trainer.firstName} - {pokemon.Trainer.lastName}
+          {Trainer.firstName} - {Trainer.lastName}
         </li>
         <li>
-          <img src={pokemon.Trainer.image} alt={`${pokemon.Trainer.firstName}'s portrait`} />
+          <img src={Trainer.image} alt={`${Trainer.firstName}'s portrait`} />
         </li>
       </ul>
     </div>

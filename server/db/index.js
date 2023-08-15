@@ -1,5 +1,5 @@
 const { db, Sequelize } = require("./db");
-// require each of your models
+
 const Trainer = db.define("Trainer", {
   firstName: {
     type: Sequelize.STRING,
@@ -34,8 +34,7 @@ const Pokemon = db.define("Pokemon", {
   },
 });
 
-// place your associations here!
-
+// Define associations
 Pokemon.belongsTo(Trainer, { foreignKey: "TrainerId" });
 
 // export your models below

@@ -1,5 +1,6 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import React from "react";
+// Import your components here
 // import Pokemon from "./components/singularPokemon";
 // import Trainer from "./components/SingularTrainer";
 // import Home from "./components/Home";
@@ -33,6 +34,7 @@ function Main() {
       ],
     },
   ]);
+  
   return (
     <div>
       <RouterProvider router={router} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import Pokemons from './AllPokemon';
+// import Pokemons from './AllPokemon';
 import Trainers from './AllTrainers';
 
 export default function Home() {
@@ -8,5 +8,5 @@ export default function Home() {
         <Pokemons/>
         <Trainers/>
     </div>
-  )
+  );
 }
